@@ -116,6 +116,7 @@ const App = () => {
             </button>
           </div>
         </div>
+        <p className='max-w-4xl mx-auto px-4 text-center text-sm mb-2 font-medium'> <span className='text-red-600'>Note: </span>A single IP address is limited to searching only 10 requests every 15 minutes.</p>
       </section>
       {/* Events Grid */}
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
