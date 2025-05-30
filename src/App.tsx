@@ -156,7 +156,7 @@ const App = () => {
         )}
       </main>
       {/* Footer */}
-      <footer className="bg-white bottom-0  border-t border-gray-200 mt-12 border bg-red-400 absolute bottom-0 w-full">
+      <footer className="bg-white bottom-0  border-t border-gray-200 mt-12 border bg-red-400 absolute bottom-0 w-full mt-4">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="text-center text-gray-600 text-sm">
             <p>Events data taken from Google Event</p>
