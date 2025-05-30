@@ -3,8 +3,8 @@
 This project features a responsive event listing web page built using React, React Hook Form, Axios, React Query, Tailwind CSS, and Zod. The application integrates with the Google Events API to fetch and display real-time events in Sydney, Australia.
 > Note: Due to the limitations of the free tier of the Google Events API, a single IP address can only perform 5 searches every 46 minutes.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [Live Preview of project](https://dummyevent.netlify.app/)  
+
 
 ## 🎯 Key Features
 
