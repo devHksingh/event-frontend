@@ -85,10 +85,10 @@ const App = () => {
       </header>
       
       {/* Search Section */}
-      <section className="bg-white border-b border-gray-200">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-          <div className="flex flex-col sm:flex-row gap-4 items-end">
-            <div className="flex-1">
+      <section className="bg-white border-b border-gray-200 ">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex justify-center">
+          <div className="flex flex-col sm:flex-row gap-4 items-end  w-full">
+            <div className="flex-1 w-full">
               <label htmlFor="searchPara" className="block text-sm font-medium text-gray-700 mb-2">
                 Search Events
               </label>
@@ -106,7 +106,7 @@ const App = () => {
             <button
               onClick={handleSubmit(onSubmit)}
               disabled={mutation.isPending}
-              className="bg-blue-600 hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed text-white font-semibold px-8 py-3 rounded-md transition-colors duration-200 flex items-center justify-center min-w-[120px]"
+              className="w-full md:w-[20%]  bg-blue-600 hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed text-white font-semibold px-8 py-3 rounded-md transition-colors duration-200 flex items-center justify-center min-w-[120px]"
             >
               {mutation.isPending ? (
                 <LoaderCircle className="w-5 h-5 animate-spin" />
@@ -119,7 +119,7 @@ const App = () => {
         <p className='max-w-4xl mx-auto px-4 text-center text-sm mb-2 font-medium'> <span className='text-red-600'>Note: </span>A single IP address is limited to searching only 5 requests every 46 minutes.</p>
       </section>
       {/* Events Grid */}
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-18">
         {mutation.isPending && (
           <div className="text-center py-12">
             <LoaderCircle className="w-8 h-8 animate-spin mx-auto mb-4 text-blue-600" />
