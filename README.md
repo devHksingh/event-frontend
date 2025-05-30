@@ -1,54 +1,53 @@
-# React + TypeScript + Vite
+# Frontend Summary
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
+This project features a responsive event listing web page built using React, React Hook Form, Axios, React Query, Tailwind CSS, and Zod. The application integrates with the Google Events API to fetch and display real-time events in Sydney, Australia.
+> Note: Due to the limitations of the free tier of the Google Events API, a single IP address can only perform 5 searches every 46 minutes.
 
 - [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Expanding the ESLint configuration
+## 🎯 Key Features
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+1. Beautiful Event Display
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+- Grid Layout: Responsive card-based layout, optimized for all screen sizes.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+- Event Cards: Showcases image, title, date/time, venue, rating, and description.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- Visual Icons: Intuitive use of icons for calendar, location, ratings, and ticket actions.
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+- Modern Aesthetic: Clean, minimal, and modern design.
+
+2. Responsive Design
+
+- Mobile-first: Seamless experience on phones, tablets, and desktops.
+  
+- Dynamic Layout: Adaptive grid (1 to 3 columns) based on screen width.
+  
+- Touch-Friendly: Optimized button size and spacing for mobile interactions.
+
+3. UI/UX Enhancements
+
+- Hover Effects: Subtle and engaging interactions on cards and buttons.
+
+- Loading States: Spinner and feedback during API requests.
+
+- Empty States: Friendly messages when no events are found.
+
+- Error States: Clearly communicated user-friendly error messages.
+
+4. Search Functionality
+
+- Search Input: Search bar to find events by city or keyword.
+
+- Validation: Zod-based schema validation for input safety.
+
+- Async Handling: Feedback provided during data fetching or failure.
+
+5. Data Integration & Dev Experience
+
+- API Ready: Seamlessly integrates with a backend API using Axios.
+
+- TypeScript Support: Strong typing for maintainability and clarity.
+
+- React Query: Efficient data fetching, caching, and state management.
