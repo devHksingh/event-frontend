@@ -33,11 +33,17 @@ interface Event {
     link: string;
     link_type: string;
   }>;
-  venue: {
+  venue?: {
     name: string;
     rating: number;
     reviews: number;
   };
+  // venue?: {
+  //   link?:string
+  //   name: string;
+  //   rating: number;
+  //   reviews: number;
+  // };
   thumbnail: string;
   image: string;
 }
@@ -48,7 +54,16 @@ const App = () => {
   const mutation = useMutation({
     mutationFn:getEventData,
     onSuccess:(response)=>{
+      // setEvents(response.data.data);
+      console.log(response.data.data);
+      response.data.data.map((item:Event)=>{
+        console.log(item.venue);
+        
+      })
+      // const non = response.data.data.filter((item:Event)=>item.venue.name === "")
+      // console.log("non",non);
       setEvents(response.data.data);
+      
     },
     onError:(err:AxiosError<ErrorResponse>)=>{
       const errorMeassge = err.response?.data.message || "Something went wrong.Try it again!"
@@ -156,7 +171,7 @@ const App = () => {
         )}
       </main>
       {/* Footer */}
-      <footer className="bg-white bottom-0  border-t border-gray-200 mt-12 border bg-red-400 absolute bottom-0 w-full mt-4">
+      <footer className="bg-white bottom-0  border-t border-gray-200 mt-12 border  absolute  w-full ">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="text-center text-gray-600 text-sm">
             <p>Events data taken from Google Event</p>

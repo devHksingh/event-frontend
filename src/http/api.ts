@@ -8,7 +8,7 @@ const api = axios.create({
 })
 
 const getEventData= async(data:{searchPara:string})=>{
-    return api.post(`/api/v1/events/getEventDetails`,data)
+    return await api.post(`/api/v1/events/getEventDetails`,data)
 }
 
 export {

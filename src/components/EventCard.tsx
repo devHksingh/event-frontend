@@ -17,7 +17,7 @@ interface Event {
     link: string;
     link_type: string;
   }>;
-  venue: {
+  venue?: {
     name: string;
     rating: number;
     reviews: number;
@@ -35,7 +35,7 @@ const EventCard: React.FC<{ event: Event }> = ({ event }) => {
     toast.success(`Event details for ${event.title} are send to email ${email}`)
   };
 
-  const ticketSources = event.ticket_info.filter(info => info.link_type === 'tickets');
+  const ticketSources = event.ticket_info?.filter(info => info.link_type === 'tickets') || [];
 
   return (
     <>
@@ -49,7 +49,7 @@ const EventCard: React.FC<{ event: Event }> = ({ event }) => {
             
           />
           <div className="absolute top-4 right-4 bg-white bg-opacity-90 rounded-full px-3 py-1 text-sm font-medium">
-            {event.date.start_date}
+            {event.date?.start_date || 'Date TBA'}
           </div>
         </div>
 
@@ -60,27 +60,29 @@ const EventCard: React.FC<{ event: Event }> = ({ event }) => {
           {/* Date and Time */}
           <div className="flex items-center text-gray-600 mb-2">
             <Calendar className="w-4 h-4 mr-2 flex-shrink-0" />
-            <span className="text-sm">{event.date.when}</span>
+            <span className="text-sm">{event.date?.when || 'Time TBA'}</span>
           </div>
 
           {/* Location */}
           <div className="flex items-start text-gray-600 mb-3">
             <MapPin className="w-4 h-4 mr-2 mt-0.5 flex-shrink-0" />
             <div className="text-sm">
-              <div className="font-medium">{event.venue.name}</div>
-              <div>{event.address.join(', ')}</div>
+              <div className="font-medium">{event.venue?.name || 'Venue TBA'}</div>
+              <div>{event.address?.join(', ') || 'Address TBA'}</div>
             </div>
           </div>
 
-          {/* Venue Rating */}
-          <div className="flex items-center text-gray-600 mb-3">
-            <Star className="w-4 h-4 mr-1 text-yellow-400 fill-current" />
-            <span className="text-sm font-medium mr-1">{event.venue.rating}</span>
-            <span className="text-sm">({event.venue.reviews.toLocaleString()} reviews)</span>
-          </div>
+          {/* Venue Rating - Only show if venue data exists */}
+          {event.venue?.rating && (
+            <div className="flex items-center text-gray-600 mb-3">
+              <Star className="w-4 h-4 mr-1 text-yellow-400 fill-current" />
+              <span className="text-sm font-medium mr-1">{event.venue.rating}</span>
+              <span className="text-sm">({event.venue.reviews?.toLocaleString() || 0} reviews)</span>
+            </div>
+          )}
 
           {/* Description */}
-          <p className="text-gray-700 text-sm mb-4 line-clamp-3">{event.description}</p>
+          <p className="text-gray-700 text-sm mb-4 line-clamp-3">{event.description || 'No description available'}</p>
 
           {/* Ticket Sources */}
           {ticketSources.length > 0 && (
